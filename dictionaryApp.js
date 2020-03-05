@@ -4,24 +4,36 @@
 
 const http = require("http");
 const url = require('url');
-
+const qs = require ('query-string');
 
 const server = http.createServer((request, response) => { 
   const {pathname, query} = url.parse(request.url, true); 
   console.log(query)
-  
-  response.writeHead(200, {'content-type': 'text/text'});
-  
-  if (pathname === '/style') {
-    response.writeHead(200, {'content-type': 'text/text'});
-    response.write('h1 {color: green; font-size: 50px}')
-  }
-  
-  if (pathname === '/'){
-    response.write("Welcome to Dictionary");
+
+  response.writeHead(200, {'content-type': 'text/html'});
+
+  let body = '';
+  request.on('data', (chunk) =>{
+    body += chunk;
+    console.log(body);
+  })
+  request.on('end', () =>{
+    request.body = qs.parse(body);
+    const resource = `${request.method} ${pathname}`
+    if (resource === 'GET /style') {
+      response.writeHead(200, {'content-type': 'text/text'});
+      response.write('h1 {color: green; font-size: 50px}')
+    }
     
-    return response.end()
-  }
+    if (resource === 'GET /'){
+      response.write("Welcome to Dictionary HEY HOOOOOOO");
+      
+      return response.end()
+    }
+
+
+  })
+  
   
   
 });
