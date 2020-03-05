@@ -1,0 +1,23 @@
+{
+  "name": "dictionary_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dictionaryApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrerondon/dictionary_app.git"
+  },
+  "author": "The Best Guys, Andre, Jugraj and Sandeep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrerondon/dictionary_app/issues"
+  },
+  "homepage": "https://github.com/andrerondon/dictionary_app#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
