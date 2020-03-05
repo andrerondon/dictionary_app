@@ -26,7 +26,7 @@ const server = http.createServer((request, response) => {
     }
     
     if (resource === 'GET /'){
-      response.write("Welcome to Dictionary HEY HOOOOOOO");
+      response.write("Welcome to Dictionary");
       
       return response.end()
     }
