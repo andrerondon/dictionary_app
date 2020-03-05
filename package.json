@@ -19,5 +19,8 @@
   "homepage": "https://github.com/andrerondon/dictionary_app#readme",
   "devDependencies": {
     "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "query-string": "^6.11.1"
   }
 }
