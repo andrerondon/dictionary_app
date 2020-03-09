@@ -41,8 +41,8 @@ const server = http.createServer((request, response) => {
     }
     if(resource === 'GET /word'){
       let word = resource.substr(5);
-      for(let x=0;x<10;x++){
-          word =  word.replace('%20',' ');
+      for(let x = 0; x < 10; x++){
+          word = word.replace('%20',' ');
        }
        fs.readFile('./labrary.txt','utf8',function(err,data){
            if(err){
@@ -50,7 +50,7 @@ const server = http.createServer((request, response) => {
            }
            let count = 0;
            let dictionaryConvertedIntoArrOfStrings = data.split('\n');
-           for (let x=0;x<dictionaryConvertedIntoArrOfStrings.length;x++){
+           for (let x = 0; x < dictionaryConvertedIntoArrOfStrings.length; x++){
                if(dictionaryConvertedIntoArrOfStrings[x].startsWith(word)){
                    response.write(`<html><body><h1>definition :-</h1><p>${dictionaryConvertedIntoArrOfStrings[x].substr(word.length+2)}</p></body></html>`);
                    count++;
@@ -58,9 +58,11 @@ const server = http.createServer((request, response) => {
            }
            if(count === 0){
                response.write('<html><body><h1>Sorry your word was not found</h1></body></html>');
-           }       
+           }   
+           return response.end()    
        })    
-  }
+     
+    }
 
 
   })
